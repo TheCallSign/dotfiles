@@ -7,6 +7,8 @@ alias zshrestart="source ~/.zshrc"
 alias la="ls -ahl --color=auto"
 alias ls='ls --color=auto'
 
+# Git Aliases #
+alias gitlisttracked="git ls-tree -r master --name-only"
 
 # systemctl Commands #
 which systemctl &>/dev/null
