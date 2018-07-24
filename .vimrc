@@ -25,5 +25,6 @@ endif
 call plug#begin()
 Plug 'terryma/vim-multiple-cursors'
 call plug#end()
+
 " set  viminfo location
 set viminfo+=n~/.vim/viminfo
