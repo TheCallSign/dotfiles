@@ -1,0 +1,12 @@
+unsetopt cdablevars
+#complete -cf sudo
+sudowarn () {
+	if [ "`id -u`" -eq 0 ]; then
+		"$@"
+		return
+	fi
+	echo "RUNNING AS ROOT"
+	sleep 1
+	sudo "$@"
+}
+
