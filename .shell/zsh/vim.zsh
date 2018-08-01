@@ -1,8 +1,8 @@
 # Switch between Vi and VIM #
-if [ `which vim` ]; then
-	VI=`which vim 2>/dev/null`
+if [ `which vim 2> /dev/null` ]; then
+	VI=`which vim`
 else
-	VI=`which vi 2>/dev/null`
+	VI=`which vi`
 fi
 
 #complete -c vipath
