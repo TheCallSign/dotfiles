@@ -5,18 +5,26 @@
 EDITOR=/usr/bin/vim
 
 # NVM directory setup
-if [[ -x `which nvm` ]]; then
+if [[ -x `which nvm 2>/dev/null`  ]]; then
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
+if [[ -n $USE_BASH ]]; then 
+ echo 'Using Bash'
+ # Load the prompt
+ source ~/.shell/liquidprompt/liquidprompt
+ return
+fi
+
+
 # Check if zsh is install, if it is run it 
-if [[ -x `which zsh` ]]; then
-    zsh
+if [ -x `which zsh 2>/dev/null` ] && [ ! -f '~/.no_zsh' ]; then
+    zsh 
     exit
 else
-    if [ ! -f '~/.no_zsh' ]; then
+    if [[ ! -f '~/.no_zsh' ]]; then
         echo 'Zsh not installed, install it? [Y/n]'
         read opt
         if [ -e $opt 'y' || 'Y']; then 
@@ -33,5 +41,4 @@ else
     fi
 fi
 
-# Load the prompt
-source ~/.shell/liquidprompt/liquidprompt
+
