@@ -20,14 +20,14 @@ fi
 
 
 # Check if zsh is install, if it is run it 
-if [ -x `which zsh 2>/dev/null` ] && [ ! -f '~/.no_zsh' ]; then
+if [ ! -x `which zsh 2>/dev/null` ] && [ ! -f '~/.no_zsh' ]; then
     zsh 
     exit
 else
     if [[ ! -f '~/.no_zsh' ]]; then
-        echo 'Zsh not installed, install it? [Y/n]'
+        echo 'Zsh not installed, install it? [y/n]'
         read opt
-        if [ -e $opt 'y' || 'Y']; then 
+        if [[ $opt == "Y" || $opt == "y" ]]; then 
             if [[ -x `which yum` ]]; then
                 sudo yum install zsh
             elif [[ -x `which apt` ]]; then
