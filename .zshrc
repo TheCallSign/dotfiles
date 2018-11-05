@@ -16,6 +16,10 @@ export ZSH=$HOME/.shell/oh-my-zsh
 # Set LP mark
 export LP_MARK_DEFAULT="$"
 
+#Load funtions
+source ~/.functions
+#Load aliases
+source ~/.shell/.aliases
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
